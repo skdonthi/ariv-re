@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+@import "font-awesome/scss/font-awesome";
+@import "_fonts.scss";
+@import "bootstrap/scss/bootstrap";
+
+// primary font
+$font_primary: "Proxima Nova";
+$primary: #fcb131;
+
+// merge with existing $theme-colors map
+$theme-colors: map-merge(
+  $theme-colors,
+  (
+    "primary": $primary,
+  )
+);
+
+body {
+  font-family: $font_primary;
+}
