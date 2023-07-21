@@ -1,6 +1,9 @@
 {
   "name": "ariv-re",
   "version": "0.0.0",
+  "author": {
+    "name": "Shiva Krishna D @ARIVRE"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
