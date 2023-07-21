@@ -1,0 +1,26 @@
+<div class="d-flex justify-content-center">
+  <div class="card border-primary" style="width: 30rem; margin: 18% auto">
+    <h4 class="card-title text-center text-primary m-3">
+      <span class="btn btn-outline-primary">
+        <i class="fa fa-handshake-o" aria-hidden="true"></i>&nbsp;
+        <b>CEDE</b>
+      </span>
+    </h4>
+    <div class="card-body">
+      <form [formGroup]="form">
+        <p>
+          <input type="text" class="form-control" placeholder="Username" formControlName="username" />
+        </p>
+
+        <p>
+          <input type="password" class="form-control" placeholder="Password" formControlName="password" />
+        </p>
+
+        <div class="d-flex justify-content-between">
+          <button type="submit" class="btn btn-primary text-light" (click)="onLogin()">Login</button>
+          <span class="mt-1 btn-link">Signin with a passcode</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
