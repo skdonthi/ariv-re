@@ -1,1 +1,245 @@
-<p>home works!</p>
+<section class="d-flex justify-content-center" *ngIf="isPage1">
+  <div class="card border-primary" style="width: 25rem; margin: 15% auto">
+    <div class="card-header text-bg-primary text-light"><b>Tenant details</b></div>
+    <div class="card-body">
+      <form [formGroup]="form1">
+        <div class="mb-3">
+          <label for="name" class="form-label">Tenant Name</label>
+          <input type="input" class="form-control" formControlName="name" id="name" />
+        </div>
+
+        <div class="mb-3">
+          <label for="houseNum" class="form-label">House Number</label>
+          <input type="input" class="form-control" formControlName="houseNum" id="houseNum" />
+        </div>
+
+        <button class="btn btn-primary" (click)="isPage1 = false; isPage2 = true">Proceed</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section *ngIf="isPage2">
+  <nav class="navbar bg-body-tertiary" style="background-color: #ccc !important">
+    <div class="container-fluid">
+      <span class="navbar-brand">
+        <h2>
+          <b>Übergabe {{ name }} {{ houseNum }}</b>
+        </h2>
+      </span>
+      <span class="btn btn-outline-primary">
+        <i class="fa fa-handshake-o" aria-hidden="true"></i>&nbsp;
+        <b>CEDE</b>
+      </span>
+    </div>
+  </nav>
+  <article class="m-4">
+    <h3>
+      <b>Übergabeprotokoll vom {{ today | date : "medium" }} Uhr</b>
+    </h3>
+
+    <div class="card border-0 my-4">
+      <h4 class=""><b>1. Objektdaten</b></h4>
+      <div class="card-body">
+        <form [formGroup]="form2">
+          <div class="row mb-3">
+            <label for="objektbezeichnung" class="col-sm-3 col-form-label"><b>Objektbezeichnung</b>:</label>
+            <div class="col-sm-9">
+              <input type="input" class="form-control" formControlName="objektbezeichnung" id="objektbezeichnung" />
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="adresszusatz" class="col-sm-3 col-form-label">Adresszusatz:</label>
+            <div class="col-sm-9">
+              <input type="input" class="form-control" formControlName="adresszusatz" id="adresszusatz" />
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="strasse" class="col-sm-3 col-form-label">Strasse:</label>
+            <div class="col-sm-9">
+              <input type="input" class="form-control" formControlName="strasse" id="strasse" />
+            </div>
+          </div>
+          <div class="row mb-4">
+            <label for="plzOrt" class="col-sm-3 col-form-label">PLZ, Ort:</label>
+            <div class="col-sm-9">
+              <input type="input" class="form-control" formControlName="plzOrt" id="plzOrt" />
+            </div>
+          </div>
+        </form>
+      </div>
+      <hr class="border border-primary border-3 opacity-50 my-4" />
+
+      <div class="card border-0 my-4">
+        <h4 class=""><b>2. Beteiligte Personen</b></h4>
+        <div class="card-body">
+          <form [formGroup]="form3">
+            <div class="row mb-3">
+              <label for="person" class="col-sm-3 col-form-label"><b>Person / Funktion</b>:</label>
+              <div class="col-sm-9">
+                <!-- <input type="input" class="form-control" formControlName="person" id="person" /> -->
+                <input type="text" readonly class="form-control-plaintext" id="person" value="Mieter" />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="pName" class="col-sm-3 col-form-label">Name:</label>
+              <div class="col-sm-9">
+                <input type="input" class="form-control" formControlName="pName" id="pName" />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="pStrasse" class="col-sm-3 col-form-label">Strasse, Nr:</label>
+              <div class="col-sm-9">
+                <input type="input" class="form-control" formControlName="pStrasse" id="pStrasse" />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="pPlzOrt" class="col-sm-3 col-form-label">PLZ, Ort:</label>
+              <div class="col-sm-9">
+                <input type="input" class="form-control" formControlName="pPlzOrt" id="pPlzOrt" />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="telefon" class="col-sm-3 col-form-label">Telefon:</label>
+              <div class="col-sm-9">
+                <input type="input" class="form-control" formControlName="telefon" id="telefon" />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="mobile" class="col-sm-3 col-form-label">Mobil:</label>
+              <div class="col-sm-9">
+                <input type="input" class="form-control" formControlName="mobile" id="mobile" />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="eMail" class="col-sm-3 col-form-label">E-mail:</label>
+              <div class="col-sm-9">
+                <input type="input" class="form-control" formControlName="eMail" id="eMail" />
+              </div>
+            </div>
+
+            <div class="my-1">&nbsp;&nbsp;</div>
+
+            <div class="row mb-3">
+              <label for="personVermieter" class="col-sm-3 col-form-label"><b>Person / Funktion</b>:</label>
+              <div class="col-sm-9">
+                <!-- <input type="input" class="form-control" formControlName="person" id="person" /> -->
+                <input type="text" readonly class="form-control-plaintext" id="personVermieter" value="Vermieter" />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="pNameVermieter" class="col-sm-3 col-form-label">Name:</label>
+              <div class="col-sm-9">
+                <input type="input" class="form-control" formControlName="pNameVermieter" id="pNameVermieter" />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="pStrasseVermieter" class="col-sm-3 col-form-label">Strasse, Nr:</label>
+              <div class="col-sm-9">
+                <input type="input" class="form-control" formControlName="pStrasseVermieter" id="pStrasseVermieter" />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="pPlzOrtVermieter" class="col-sm-3 col-form-label">PLZ, Ort:</label>
+              <div class="col-sm-9">
+                <input type="input" class="form-control" formControlName="pPlzOrtVermieter" id="pPlzOrtVermieter" />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="telefonVermieter" class="col-sm-3 col-form-label">Telefon:</label>
+              <div class="col-sm-9">
+                <input type="input" class="form-control" formControlName="telefonVermieter" id="telefonVermieter" />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="mobileVermieter" class="col-sm-3 col-form-label">Mobil:</label>
+              <div class="col-sm-9">
+                <input type="input" class="form-control" formControlName="mobileVermieter" id="mobileVermieter" />
+              </div>
+            </div>
+            <div class="row">
+              <label for="eMailVermieter" class="col-sm-3 col-form-label">E-mail:</label>
+              <div class="col-sm-9">
+                <input type="input" class="form-control" formControlName="eMailVermieter" id="eMailVermieter" />
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <button class="col-1 mx-3 btn btn-primary" (click)="isPage2 = false; isPage3 = true">Next</button>
+    </div>
+  </article>
+</section>
+
+<section *ngIf="isPage3">
+  <nav class="navbar bg-body-tertiary" style="background-color: #ccc !important">
+    <div class="container-fluid">
+      <span class="navbar-brand">
+        <h2>
+          <b>Übergabe {{ name }} {{ houseNum }}</b>
+        </h2>
+      </span>
+      <span class="btn btn-outline-primary">
+        <i class="fa fa-handshake-o" aria-hidden="true"></i>&nbsp;
+        <b>CEDE</b>
+      </span>
+    </div>
+  </nav>
+  <article class="m-4">
+    <h3>
+      <b>3. Folgende Schlüssel werden übergeben</b>
+    </h3>
+
+    <div class="card border-0 my-4">
+      <div class="card-body">
+        <form [formGroup]="form4">
+          <div class="row mb-3">
+            <label for="postBoxKeys" class="col-sm-3 col-form-label">Briefkastenschlüssel</label>
+            <div class="col-sm-2">
+              <select class="form-select" style="width: auto" name="postBoxKeys" formControlName="postBoxKeys">
+                <option [value]="1">1</option>
+                <option [value]="2">2</option>
+              </select>
+            </div>
+            <div class="mt-1 col-sm-2">(soll: 2)</div>
+          </div>
+          <div class="row mb-3">
+            <label for="doorKeys" class="col-sm-3 col-form-label">Wohnungsschlüssel</label>
+            <div class="col-sm-2">
+              <select class="form-select" style="width: auto" name="doorKeys" formControlName="doorKeys">
+                <option [value]="1">1</option>
+                <option [value]="2">2</option>
+                <option [value]="3">3</option>
+                <option [value]="4">4</option>
+              </select>
+            </div>
+            <div class="mt-1 col-sm-2">(soll: 4)</div>
+          </div>
+        </form>
+      </div>
+      <hr class="border border-primary border-3 opacity-50 my-3" />
+
+      <div class="card border-0 my-4">
+        <h4 class=""><b>4. Räume</b></h4>
+        <div class="mx-4">
+          <h5 class=""><b>Badezimmer</b></h5>
+          <h5 class=""><b>Ausstattung:</b></h5>
+        </div>
+
+        <div class="m-4">
+          <h5 class=""><b>Zustand:</b></h5>
+        </div>
+
+        <div class="m-4">
+          <h5 class=""><b>Bilder zum Raum:</b></h5>
+          <div class="mb-3">
+            <input class="form-control" type="file" id="formFile" multiple>
+          </div>
+        </div>
+      </div>
+
+      <button class="col-1 mx-3 btn btn-primary">Next</button>
+    </div>
+  </article>
+</section>

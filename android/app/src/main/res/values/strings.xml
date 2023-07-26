@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">ariv-re</string>
+    <string name="title_activity_main">ariv-re</string>
+    <string name="package_name">com.ariv.re</string>
+    <string name="custom_url_scheme">com.ariv.re</string>
+</resources>
